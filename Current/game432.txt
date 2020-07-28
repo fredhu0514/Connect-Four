@@ -1,0 +1,73 @@
+<<<<<<<<<<<<<<< GAME STARTS >>>>>>>>>>>>>>
+
+==========================================
+=================== RED ==================
+==========================================
+Turn 1, red-side player chose column 2.
+
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O R O O O O O 
+
+
+<<<<<<<<<<<<<<< GAME STARTS >>>>>>>>>>>>>>
+
+==========================================
+=================== RED ==================
+==========================================
+Turn 1, red-side player chose column 4.
+
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O R O O O 
+
+
+<<<<<<<<<<<<<<< GAME STARTS >>>>>>>>>>>>>>
+
+==========================================
+=================== RED ==================
+==========================================
+Turn 1, red-side player chose column 4.
+
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O R O O O 
+
+
+<<<<<<<<<<<<<<< GAME STARTS >>>>>>>>>>>>>>
+
+==========================================
+=================== RED ==================
+==========================================
+Turn 1, red-side player chose column 4.
+
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O R O O O 
+
+
+==========================================
+================== YELLOW ================
+==========================================
+Turn 2, yellow-side player chose column 5.
+
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O R Y O O 
+
+

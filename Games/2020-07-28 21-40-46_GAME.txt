@@ -1,0 +1,236 @@
+<<<<<<<<<<<<<<< GAME STARTS >>>>>>>>>>>>>>
+
+==========================================
+=================== RED ==================
+==========================================
+Turn 1, red-side player chose column 4.
+
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O R O O O 
+
+
+==========================================
+================== YELLOW ================
+==========================================
+Turn 2, yellow-side player chose column 3.
+
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O Y R O O O 
+
+
+==========================================
+=================== RED ==================
+==========================================
+Turn 3, red-side player chose column 7.
+
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O Y R O O R 
+
+
+==========================================
+================== YELLOW ================
+==========================================
+Turn 4, yellow-side player chose column 5.
+
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O Y R Y O R 
+
+
+==========================================
+=================== RED ==================
+==========================================
+Turn 5, red-side player chose column 4.
+
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O R O O O 
+O O Y R Y O R 
+
+
+==========================================
+================== YELLOW ================
+==========================================
+Turn 6, yellow-side player chose column 1.
+
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O R O O O 
+Y O Y R Y O R 
+
+
+==========================================
+=================== RED ==================
+==========================================
+Turn 7, red-side player chose column 4.
+
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O R O O O 
+O O O R O O O 
+Y O Y R Y O R 
+
+
+==========================================
+================== YELLOW ================
+==========================================
+Turn 8, yellow-side player chose column 4.
+
+O O O O O O O 
+O O O O O O O 
+O O O Y O O O 
+O O O R O O O 
+O O O R O O O 
+Y O Y R Y O R 
+
+
+==========================================
+=================== RED ==================
+==========================================
+Turn 9, red-side player chose column 5.
+
+O O O O O O O 
+O O O O O O O 
+O O O Y O O O 
+O O O R O O O 
+O O O R R O O 
+Y O Y R Y O R 
+
+
+==========================================
+================== YELLOW ================
+==========================================
+Turn 10, yellow-side player chose column 2.
+
+O O O O O O O 
+O O O O O O O 
+O O O Y O O O 
+O O O R O O O 
+O O O R R O O 
+Y Y Y R Y O R 
+
+
+==========================================
+=================== RED ==================
+==========================================
+Turn 11, red-side player chose column 3.
+
+O O O O O O O 
+O O O O O O O 
+O O O Y O O O 
+O O O R O O O 
+O O R R R O O 
+Y Y Y R Y O R 
+
+
+==========================================
+================== YELLOW ================
+==========================================
+Turn 12, yellow-side player chose column 2.
+
+O O O O O O O 
+O O O O O O O 
+O O O Y O O O 
+O O O R O O O 
+O Y R R R O O 
+Y Y Y R Y O R 
+
+
+==========================================
+=================== RED ==================
+==========================================
+Turn 13, red-side player chose column 3.
+
+O O O O O O O 
+O O O O O O O 
+O O O Y O O O 
+O O R R O O O 
+O Y R R R O O 
+Y Y Y R Y O R 
+
+
+==========================================
+================== YELLOW ================
+==========================================
+Turn 14, yellow-side player chose column 5.
+
+O O O O O O O 
+O O O O O O O 
+O O O Y O O O 
+O O R R Y O O 
+O Y R R R O O 
+Y Y Y R Y O R 
+
+
+==========================================
+=================== RED ==================
+==========================================
+Turn 15, red-side player chose column 3.
+
+O O O O O O O 
+O O O O O O O 
+O O R Y O O O 
+O O R R Y O O 
+O Y R R R O O 
+Y Y Y R Y O R 
+
+
+==========================================
+================== YELLOW ================
+==========================================
+Turn 16, yellow-side player chose column 3.
+
+O O O O O O O 
+O O Y O O O O 
+O O R Y O O O 
+O O R R Y O O 
+O Y R R R O O 
+Y Y Y R Y O R 
+
+
+==========================================
+=================== RED ==================
+==========================================
+Turn 17, red-side player chose column 6.
+
+O O O O O O O 
+O O Y O O O O 
+O O R Y O O O 
+O O R R Y O O 
+O Y R R R O O 
+Y Y Y R Y R R 
+
+
+
+<<<<<<<<<<<<\\\\\ RED WINS /////>>>>>>>>>>>>>>>
+O O O O O O O 
+O O Y O O O O 
+O O R Y O O O 
+O O R R Y O O 
+O Y R R R O O 
+Y Y Y R Y R R 
+<<<<<<<<<<<<<<<< GAME OVER >>>>>>>>>>>>>>>
+
+
+
+

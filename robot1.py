@@ -2,8 +2,37 @@ import playGround
 import human
 import copy
 import time
+import sys
 
-ifMyTurn = human.ifMyTurn
+TXTpaths = [playGround.path_current_game_state, playGround.path_all_games, playGround.txt_file]
+
+def chooseRoomNum(term=""):
+    if term == "":
+        term = input("Input your Room Number: ")
+        print("\n")
+        print("\n")
+        print("\n")
+
+        TXTpaths[0] += term + TXTpaths[2]
+        TXTpaths[1] += term + TXTpaths[2]
+        return None
+    else:
+        TXTpaths[0] += term + TXTpaths[2]
+        TXTpaths[1] += term + TXTpaths[2]
+
+# Expecti but max at the very top
+
+INDEX_FILE_RED = "INDEX/ROBOT1/INDEX_RED.txt"
+INDEX_FILE_YEL = "INDEX/ROBOT1/INDEX_YEL.txt"
+
+def ifMyTurn(mySide):
+    f = open(TXTpaths[0], 'r')
+    line = f.readline()
+    temp = eval(line)
+    if temp == -mySide:
+        return True
+    return False
+
 chooseSide = human.chooseSide
 
 deepest_search_level = 6
@@ -34,6 +63,7 @@ def chooseColumn(mySide, gS):
         newGS = method(temp, i)
         if newGS:
             tp = evalFunc(newGS, 0, -mySide, mySide)
+            toIndex(newGS, tp, mySide)
             print(i)
             print(tp)
             dict.append(tp)
@@ -98,13 +128,13 @@ def evalFunc(gS, turn, sideOfThisTurn, mySide):
 
 def play(args=""):
     # Main Function
-    playGround.initProcessorTXT()
+    playGround.initProcessorTXT(TXTpaths[0])
     mySide = args
     isWin = False
     while not isWin:
         time.sleep(3)
         if ifMyTurn(mySide):
-            f = open(playGround.path_current_game_state, 'r')
+            f = open(TXTpaths[0], 'r')
             f.readline()
             curTurn = eval(f.readline())
             gS = eval(f.readline())
@@ -114,60 +144,59 @@ def play(args=""):
                 sideSTR = "=================== RED ==================\n"
             elif mySide == -1:
                 sideSTR = "================== YELLOW ================\n"
-            # print(sideSTR + "Turn " + (str)(curTurn) + ".\n")
             playGround.printGS(gS)
             chooseCol, updatedGS = chooseColumn(mySide, gS)
 
             # Write the game.txt file
-            playGround.updateFileInfo(curTurn + 1, chooseCol, mySide, updatedGS, playGround.path_all_games)
+            playGround.updateFileInfo(curTurn + 1, chooseCol, mySide, updatedGS, TXTpaths[1], TXTpaths[0])
 
             # Judge who wins
             winner = playGround.isWin(updatedGS)
             if winner != 0:
                 isWin = True
-                playGround.gameEnds(winner, updatedGS)
+                playGround.gameEnds(winner, updatedGS, TXTpaths[0])
                 break
 
             # If no winners but the board is full
             if playGround.isFull(updatedGS):
-                playGround.writeDraw()
+                playGround.writeDraw(TXTpaths[0], TXTpaths[1])
                 break
+
+def toIndex(gS, expectedValue, mySide):
+    if mySide == 0:
+        return None
+
+    new_LIST = [gS, expectedValue, mySide]
+    # Right after the red played
+    if mySide == 1:
+        rf = open(INDEX_FILE_RED, "r")
+        line = rf.readline()
+        while line:
+            if eval(line)[0] == new_LIST[0]:
+                return None
+        f = open(INDEX_FILE_RED, "a")
+        f.write((str)(new_LIST))
+    # Right after the yellow played
+    elif mySide == -1:
+        rf = open(INDEX_FILE_YEL, "r")
+        line = rf.readline()
+        while line:
+            if eval(line)[0] == new_LIST[0]:
+                return None
+        f = open(INDEX_FILE_YEL, "a")
+        f.write((str)(new_LIST))
+    return None
 
     # print("<<<<<<<<<<<<<<<< GAME OVER >>>>>>>>>>>>>>>\n\n\n\n\n")
 
 if __name__ == "__main__":
-    args = chooseSide()
-    play(args)
+    terms = sys.argv[1:]
+    roomNum = terms[0]
+    playerTurn = terms[1]
+    playerTurn = eval(playerTurn)
 
-# def test2():
-#     putYel = playGround.putYel
-#     putRed = playGround.putRed
-#     gS = playGround.init_gameState()
-#     gS = putYel(gS, 1)
-#     gS = putYel(gS, 1)
-#     gS = putYel(gS, 1)
-#
-#     gS = putRed(gS, 2)
-#     gS = putRed(gS, 2)
-#     gS = putRed(gS, 2)
-#     gS = putYel(gS, 2)
-#     gS = putRed(gS, 2)
-#
-#     gS = putRed(gS, 3)
-#     gS = putRed(gS, 3)
-#     gS = putYel(gS, 3)
-#     gS = putYel(gS, 3)
-#     gS = putYel(gS, 3)
-#     gS = putRed(gS, 3)
-#
-#     gS = putYel(gS, 4)
-#     gS = putYel(gS, 4)
-#     gS = putYel(gS, 4)
-#     gS = putRed(gS, 4)
-#
-#     gS = putRed(gS, 5)
-#     gS = putRed(gS, 5)
-#     gS = putRed(gS, 5)
-#     gS = putYel(gS, 5)
-#     playGround.printGS(gS)
-#     chooseColumn(1, gS)
+    chooseRoomNum(roomNum)
+    args = chooseSide(playerTurn)
+    f1 = open(INDEX_FILE_RED, 'a')
+    f2 = open(INDEX_FILE_YEL, 'a')
+    play(args)

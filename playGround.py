@@ -4,8 +4,9 @@ import time
 redVal = 1
 yelVal = -1
 
-path_current_game_state = "Current/process.txt"
-path_all_games = "Current/game.txt"
+path_current_game_state = "Current/process"
+path_all_games = "Current/game"
+txt_file = ".txt"
 
 def init_gameState():
     lst = []
@@ -153,7 +154,7 @@ def putYel(gameState, a):
         gameState[ptr - 1][a] = yelVal
         return gameState
 
-def initProcessorTXT():
+def initProcessorTXT(path_current_game_state):
     # palyer; turn; game state
     temp = (str)(-1) + "\n"
     temp += (str)(0) + "\n"
@@ -161,7 +162,7 @@ def initProcessorTXT():
     f = open(path_current_game_state,'w')
     f.write(temp)
 
-def writeDraw():
+def writeDraw(path_current_game_state, path_all_games):
     # Processor.txt should be empty then
     temp = ""
     f = open(path_current_game_state,'w')
@@ -185,7 +186,7 @@ def writeDraw():
     f = open(path_all_games,'w')
     f.write("")
 
-def gameEnds(winner, gS):
+def gameEnds(winner, gS, path_current_game_state):
     # Processor.txt should be empty then
     temp = ""
     f = open(path_current_game_state,'w')
@@ -214,7 +215,7 @@ def gameEnds(winner, gS):
 
 
 
-def updateFileInfo(turn, chosen_column, side, gS, path_all_games):
+def updateFileInfo(turn, chosen_column, side, gS, path_all_games, path_current_game_state):
     # rewrite <path_current_game_state>
     temp = (str)(side) + "\n"
     temp += (str)(turn) + "\n"

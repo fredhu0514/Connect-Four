@@ -1,25 +1,45 @@
 import playGround
 import time
+import sys
+
+TXTpaths = [playGround.path_current_game_state, playGround.path_all_games, playGround.txt_file]
 
 def ifMyTurn(mySide):
-    f = open(playGround.path_current_game_state, 'r')
+    f = open(TXTpaths[0], 'r')
     line = f.readline()
     temp = eval(line)
     if temp == -mySide:
         return True
     return False
 
-def chooseSide():
-    temp = 0
-    while not (temp == 1 or temp == -1):
-        str = input("If RED, enter 1; else if YELLOW, enter 2: ")
-        if str != "":
-            side = eval(str)
-        if side == 1:
-            temp = 1
-        elif side == 2:
-            temp = -1
-    return temp
+def chooseRoomNum(term=""):
+    if term == "":
+        term = input("Input your Room Number: ")
+        print("\n")
+        print("\n")
+        print("\n")
+
+        TXTpaths[0] += term + TXTpaths[2]
+        TXTpaths[1] += term + TXTpaths[2]
+        return None
+    else:
+        TXTpaths[0] += term + TXTpaths[2]
+        TXTpaths[1] += term + TXTpaths[2]
+
+def chooseSide(side=0):
+    if side == 0:
+        temp = 0
+        while not (temp == 1 or temp == -1):
+            str = input("If RED, enter 1; else if YELLOW, enter 2: ")
+            if str != "":
+                side = eval(str)
+            if side == 1:
+                temp = 1
+            elif side == 2:
+                temp = -1
+        return temp
+    else:
+        return side
 
 def chooseColumn(side, gS):
     tempGS = None
@@ -47,13 +67,13 @@ def chooseNumberFrom1TO7():
 
 def play(args=""):
     # Main Function
-    playGround.initProcessorTXT()
+    playGround.initProcessorTXT(TXTpaths[0])
     mySide = args
     isWin = False
     while not isWin:
         time.sleep(3)
         if ifMyTurn(mySide):
-            f = open(playGround.path_current_game_state, 'r')
+            f = open(TXTpaths[0], 'r')
             f.readline()
             curTurn = eval(f.readline())
             gS = eval(f.readline())
@@ -63,27 +83,31 @@ def play(args=""):
                 sideSTR = "=================== RED ==================\n"
             elif mySide == -1:
                 sideSTR = "================== YELLOW ================\n"
-            print(sideSTR + "Turn " + (str)(curTurn) + ".\n")
             playGround.printGS(gS)
             chooseCol, updatedGS = chooseColumn(mySide, gS)
 
             # Write the game.txt file
-            playGround.updateFileInfo(curTurn + 1, chooseCol, mySide, updatedGS, playGround.path_all_games)
+            playGround.updateFileInfo(curTurn + 1, chooseCol, mySide, updatedGS, TXTpaths[1], TXTpaths[0])
 
             # Judge who wins
             winner = playGround.isWin(updatedGS)
             if winner != 0:
                 isWin = True
-                playGround.gameEnds(winner, updatedGS)
+                playGround.gameEnds(winner, updatedGS, TXTpaths[0])
                 break
 
             # If no winners but the board is full
             if playGround.isFull(updatedGS):
-                playGround.writeDraw()
+                playGround.writeDraw(TXTpaths[0], TXTpaths[1])
                 break
 
-    print("<<<<<<<<<<<<<<<< GAME OVER >>>>>>>>>>>>>>>\n\n\n\n\n")
-
 if __name__ == "__main__":
-    args = chooseSide()
+    terms = sys.argv[1:]
+    roomNum = terms[0]
+    playerTurn = terms[1]
+    playerTurn = eval(playerTurn)
+
+    chooseRoomNum(roomNum)
+    args = chooseSide(playerTurn)
+
     play(args)
